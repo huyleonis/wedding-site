@@ -1,3 +1,6 @@
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 const { defineConfig } = require('@vue/cli-service')
 
 const path = require('path')
@@ -38,7 +41,26 @@ module.exports = defineConfig({
       }
     }
   },
+
+  // plugins: [
+  //   AutoImport.default({
+  //     resolvers: [ElementPlusResolver()],
+  //   }),
+  //   Components.default({
+  //     resolvers: [ElementPlusResolver()],
+  //   }),
+  // ],
   configureWebpack: config => {
+
+    config.plugins.push(
+      AutoImport.default({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components.default({
+        resolvers: [ElementPlusResolver()],
+      }),
+    )
+
     // Skip on development
     if (process.env.NODE_ENV === 'development') return
 

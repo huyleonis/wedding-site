@@ -1,15 +1,15 @@
 <template>
+  <Home />
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './views/Home.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Home
   }
 }
 </script>
@@ -20,7 +20,29 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background: $bg-color;
   margin-top: 60px;
+  scroll-behavior: smooth;
+}
+
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #363636;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #696969;
+  border-radius: 10px;
+  border: 1px solid #696969;
 }
 </style>
